@@ -16,7 +16,11 @@ export default function Track({
           <div className="flex justify-between">
             <div className="flex">
               <div className="block">
-                <img src={img} style={{ height: "40px", width: "40px" }} />
+                <img
+                  src={img}
+                  style={{ height: "40px", width: "40px" }}
+                  alt={`Track Picture for ${title}`}
+                />
               </div>
               <div className="ml-3 flex flex-col justify-between max-w-[150px] truncate">
                 <a className="text-sm sm:text-md font-semibold text-left">
