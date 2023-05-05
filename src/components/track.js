@@ -1,3 +1,5 @@
+import Moment from "react-moment";
+
 export function PlaylistHeader({ img, title, description, author }) {
   return (
     <div className="flex items-end mb-6 md:mb-10">
@@ -42,7 +44,7 @@ export default function Track({
                   alt={`Track Picture for ${title}`}
                 />
               </div>
-              <div className="ml-3 flex flex-col justify-between max-w-[150px] truncate">
+              <div className="ml-3 flex flex-col justify-between w-[150px]  truncate">
                 <span className="text-sm sm:text-md font-semibold text-left">
                   {title}
                 </span>
@@ -51,7 +53,9 @@ export default function Track({
             </div>
 
             <div className="w-[50px] sm:w-[200px] truncate">{album}</div>
-            <div className="text-right">{date}</div>
+            <div className="text-right">
+              <Moment format="MMM D, YYYY">{date}</Moment>
+            </div>
             <div className="text-right">{duration}</div>
           </div>
         </div>
