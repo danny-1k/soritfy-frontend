@@ -4,3 +4,11 @@ export const millisToMinutesAndSeconds = (millis) => {
   var seconds = ((millis % 60000) / 1000).toFixed(0);
   return minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
 };
+
+export const generateRandomString = () => {
+  let output = "";
+  for (let i = 0; i < 8; i++)
+    output += Math.floor(Math.random() * 16).toString(16);
+
+  return output;
+};
