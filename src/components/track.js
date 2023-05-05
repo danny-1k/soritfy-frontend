@@ -42,14 +42,15 @@ export default function Track({
                   src={img}
                   style={{ height: "40px", width: "40px" }}
                   alt={`Track Picture for ${title}`}
+                  className="block"
                 />
               </div>
-              <div className="ml-3 flex flex-col justify-between ">
-                <span className="text-sm sm:text-md font-semibold text-left w-[150px] truncate">
+              <div className="ml-3 flex flex-col justify-between w-[300px]">
+                <span className="text-sm sm:text-md font-semibold text-left truncate w-full">
                   {title}
                 </span>
-                <div className="text-xs text-left w-[300px]">
-                  {authors.map((author) => (
+                <div className="text-xs text-left truncate w-full">
+                  {authors.map((author, idx) => (
                     <>
                       <a
                         className="hover:text-blue-400 hover:underline"
@@ -58,22 +59,25 @@ export default function Track({
                       >
                         {author.name}
                       </a>
-                      <span>, </span>
+
+                      {idx < authors.length - 1 ? <span>, </span> : <></>}
                     </>
                   ))}
                 </div>
               </div>
             </div>
 
-            <span className="w-[50px] sm:w-[200px] truncate text-sm self-center">
+            <span className="hidden md:block truncate text-xs self-center text-left w-[200px]">
               {album}
             </span>
 
-            <span className="text-right text-sm self-center">
+            <span className="hidden md:block text-left text-xs sm:text-sm self-center w-[100px]">
               <Moment format="MMM D, YYYY">{date}</Moment>
             </span>
 
-            <span className="text-right text-sm self-center">{duration}</span>
+            <span className="text-right self-center text-xs sm:text-sm">
+              {duration}
+            </span>
           </div>
         </div>
       </div>
