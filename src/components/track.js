@@ -1,3 +1,23 @@
+export function PlaylistHeader({ img, title, description, author }) {
+  return (
+    <div className="flex items-end mb-6 md:mb-10">
+      <img
+        src={img}
+        style={{ height: "200px", width: "200px" }}
+        alt={`Playlist Picture for ${title}`}
+      />
+
+      <div className="ml-4 text-left">
+        <span className="text-sm font-bold">Playlist</span>
+        <h3 className="font-bold text-2xl sm:text-5xl mt-3">{title}</h3>
+        <div className="mt-4">
+          <span className="text-sm text-gray-300">{description}</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function Track({
   order,
   album,
@@ -23,10 +43,10 @@ export default function Track({
                 />
               </div>
               <div className="ml-3 flex flex-col justify-between max-w-[150px] truncate">
-                <a className="text-sm sm:text-md font-semibold text-left">
+                <span className="text-sm sm:text-md font-semibold text-left">
                   {title}
-                </a>
-                <a className="text-xs text-left">{authors}</a>
+                </span>
+                <span className="text-xs text-left">{authors}</span>
               </div>
             </div>
 
