@@ -44,19 +44,36 @@ export default function Track({
                   alt={`Track Picture for ${title}`}
                 />
               </div>
-              <div className="ml-3 flex flex-col justify-between w-[150px]  truncate">
-                <span className="text-sm sm:text-md font-semibold text-left">
+              <div className="ml-3 flex flex-col justify-between ">
+                <span className="text-sm sm:text-md font-semibold text-left w-[150px] truncate">
                   {title}
                 </span>
-                <span className="text-xs text-left">{authors}</span>
+                <div className="text-xs text-left w-[300px]">
+                  {authors.map((author) => (
+                    <>
+                      <a
+                        className="hover:text-blue-400 hover:underline"
+                        href={author.href}
+                        key={author.href}
+                      >
+                        {author.name}
+                      </a>
+                      <span>, </span>
+                    </>
+                  ))}
+                </div>
               </div>
             </div>
 
-            <div className="w-[50px] sm:w-[200px] truncate">{album}</div>
-            <div className="text-right">
+            <span className="w-[50px] sm:w-[200px] truncate text-sm self-center">
+              {album}
+            </span>
+
+            <span className="text-right text-sm self-center">
               <Moment format="MMM D, YYYY">{date}</Moment>
-            </div>
-            <div className="text-right">{duration}</div>
+            </span>
+
+            <span className="text-right text-sm self-center">{duration}</span>
           </div>
         </div>
       </div>
